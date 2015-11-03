@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+  <h1>Earn/Burn Ledger</h1>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th class='text-right'>Amount</th>
+        <th class='text-right'>Points</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @activities.each do |activity| %>
+        <tr>
+          <td><%= activity.created_at.strftime("%Y/%m/%d %H:%m") %></td>
+          <td class='text-right'><%= number_to_currency(activity.amount) %></td>
+          <td class='text-right'><%= number_with_delimiter(activity.points) %></td>
+          <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Credit(Earn)', new_activity_path, class: 'btn btn-default' %>
+  <%= link_to 'Redeem (Burn)', redeem_path, class: 'btn btn-default', method: :post %>

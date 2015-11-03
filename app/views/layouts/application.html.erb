@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loyaltyplus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<ul class="nav nav-tabs m-b-30">
+  <%= render 'devise/menu/login_items' %>
+  <%= render 'devise/menu/registration_items' %>
+</ul>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>

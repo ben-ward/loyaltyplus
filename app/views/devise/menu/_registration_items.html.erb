@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <li style='padding: 10px 15px;'>
+  <%= "Point Balance: #{number_with_delimiter(current_user.activities.sum(:points))}" %>
+  </li>
+  <li class='pull-right'>
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+  </li>
+<% else %>
+  <li class='pull-right'>
+  <%= link_to('Register', new_user_registration_path)  %>
+  </li>
+<% end %>
